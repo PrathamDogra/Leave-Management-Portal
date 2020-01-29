@@ -9,7 +9,7 @@ const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 
 // Load Users model
-const User = require("../models/Users");
+const Users = require("../models/Users");
 
 // @route POST /users/register
 
@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
       return res.status(400).json({ email: "Username already exists" });
     } else {
       const newUser = new Users({
-        name: req.body.username,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password,
         type: req.body.type
@@ -41,7 +41,10 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => res.json(user))
+            .then(user => {
+              res.json(user);
+              console.log("User Added");
+            })
             .catch(err => console.log(err));
         });
       });
@@ -78,7 +81,7 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.username
+          name: user.name
         };
 
         // Sign token
