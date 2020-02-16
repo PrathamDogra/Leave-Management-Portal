@@ -9,7 +9,7 @@ const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 
 // Load Users model
-const Users = require("../models/Users");
+const User = require("../models/Users");
 
 // @route POST /users/register
 
@@ -23,28 +23,25 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  Users.findOne({ username: req.body.username }).then(user => {
+  User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Username already exists" });
+      return res.status(400).json({ email: "Email already exists" });
     } else {
-      const newUser = new Users({
-        username: req.body.username,
+      const newUser = new User({
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        type: req.body.type
+        type:req.body.type
       });
 
-      // Hash password before saving to the database
+      // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
           newUser
             .save()
-            .then(user => {
-              res.json(user);
-              console.log("User Added");
-            })
+            .then(user => res.json(user))
             .catch(err => console.log(err));
         });
       });
@@ -64,14 +61,14 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const username = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
 
   // Find user by email
-  Users.findOne({ username }).then(user => {
+  User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ usernameNotFound: "Username not found" });
+      return res.status(404).json({ emailnotfound: "Email not found" });
     }
 
     // Check password
@@ -89,7 +86,7 @@ router.post("/login", (req, res) => {
           payload,
           keys.secretOrKey,
           {
-            expiresIn: 31556926
+            expiresIn: 31556926 // 1 year in seconds
           },
           (err, token) => {
             res.json({

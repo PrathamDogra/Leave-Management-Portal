@@ -9,7 +9,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      email: "",
       password: "",
       errors: {}
     };
@@ -18,7 +18,6 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      console.log(this.props.history);
       this.props.history.push("/dashboard");
     }
   }
@@ -43,7 +42,7 @@ class Login extends Component {
     e.preventDefault();
 
     const userData = {
-      username: this.state.username,
+      email: this.state.email,
       password: this.state.password
     };
 
@@ -73,18 +72,18 @@ class Login extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
-                  value={this.state.username}
-                  error={errors.username}
-                  id="username"
-                  type="text"
+                  value={this.state.email}
+                  error={errors.email}
+                  id="email"
+                  type="email"
                   className={classnames("", {
-                    invalid: errors.username || errors.usernameNotFound
+                    invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Username</label>
+                <label htmlFor="email">Email</label>
                 <span className="red-text">
-                  {errors.username}
-                  {errors.usernameNotFound}
+                  {errors.email}
+                  {errors.emailnotfound}
                 </span>
               </div>
               <div className="input-field col s12">
@@ -137,4 +136,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);

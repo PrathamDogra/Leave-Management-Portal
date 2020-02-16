@@ -26,7 +26,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-app.use("/users", userRoute);
+app.use("/api/users", userRoute);
 const port = process.env.PORT || 5000;
 app.get("/",(req, res)=>{
   res.json({message:"The app is running"})

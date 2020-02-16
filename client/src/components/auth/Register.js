@@ -4,15 +4,16 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-
+import { FormGroup, Input } from "reactstrap";
 class Register extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      name: "",
       email: "",
       password: "",
       password2: "",
+      type: "",
       errors: {}
     };
   }
@@ -40,10 +41,11 @@ class Register extends Component {
     e.preventDefault();
 
     const newUser = {
-      username: this.state.username,
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+      type: this.state.type
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -51,7 +53,7 @@ class Register extends Component {
 
   render() {
     const { errors } = this.state;
-
+    const typeUser = ["Teacher", "Others"];
     return (
       <div className="container">
         <div className="row">
@@ -72,16 +74,16 @@ class Register extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
-                  value={this.state.username}
-                  error={errors.username}
-                  id="username"
+                  value={this.state.name}
+                  error={errors.name}
+                  id="name"
                   type="text"
                   className={classnames("", {
-                    invalid: errors.username
+                    invalid: errors.name
                   })}
                 />
-                <label htmlFor="name">Username</label>
-                <span className="red-text">{errors.username}</span>
+                <label htmlFor="name">Name</label>
+                <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
                 <input
@@ -96,6 +98,22 @@ class Register extends Component {
                 />
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
+              </div>
+              <div className="input-field col s12">
+                <FormGroup>
+                  <Input
+                    type="select"
+                    name="default"
+                    value={this.state.type}
+                    onChange={this.onChange}
+                    id="type"
+                  >
+                    <option>Select User Type</option>
+                    {typeUser.map((val, i) => (
+                      <option key={i}>{val}</option>
+                    ))}
+                  </Input>
+                </FormGroup>
               </div>
               <div className="input-field col s12">
                 <input
