@@ -53,7 +53,7 @@ class Register extends Component {
 
   render() {
     const { errors } = this.state;
-    const typeUser = ["Teacher", "Others"];
+    const typeUser = ["Teacher", "Admin", "Others"];
     return (
       <div className="container">
         <div className="row">
