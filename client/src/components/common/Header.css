@@ -1,0 +1,35 @@
+.header-common{
+    display: flex;
+    justify-content: space-between;
+    color:white;
+   
+    align-items: center;
+    padding: 10px 50px;
+}
+.header-msit-logo{
+   
+    height: 80px;
+}
+.header-msit-logo-img{
+ 
+    height: 100%;
+    border-radius: 50%;
+}
+.people-designation{
+    color:white;
+}
+.people-name{
+    font-size: 22px;
+    font-family: 'Spectral';
+}
+.logout-btn-div{
+    height: 30px;
+   
+    color:#a51c30;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-family: 'Spectral';
+}
