@@ -6,15 +6,14 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-
-import Faculty from './components/users/Faculty'
-
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Faculty from "./components/users/Faculty";
+import LeavesLeft from "./components/users/LeavesLeft";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
@@ -48,9 +47,11 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/faculty" component={Faculty} />
+
+            <Route exact path="/leaves" component={LeavesLeft} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/faculty" component={Faculty} />
             </Switch>
           </div>
         </Router>
