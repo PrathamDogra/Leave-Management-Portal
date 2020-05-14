@@ -21,7 +21,7 @@ class Register extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/faculty");
     }
   }
 
@@ -53,7 +53,7 @@ class Register extends Component {
 
   render() {
     const { errors } = this.state;
-    const typeUser = ["Teacher", "Others"];
+    const typeUser = ["Teacher", "Admin", "Others"];
     return (
       <div className="container">
         <div className="row">

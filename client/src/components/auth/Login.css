@@ -1,0 +1,172 @@
+.outer-header-logo{
+    height: 100px;  
+    
+}
+.outer-header-div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.college-head{
+    font-size: 36px;
+    font-weight: bold;
+}
+.login-outer{
+    height: 100vh;
+    background: linear-gradient(0deg, #FFB702, #0A4E95);
+}
+.login-inner{
+    position: relative;
+    background-color:white;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:70%;
+    border-radius: 20px;
+    padding: 30px 50px 40px 50px;
+}
+
+.leave-head{
+    font-size: 28px;
+}
+.ieee-logo{
+    height: 100px;
+    border-radius: 50%;
+}
+.login-form-div{
+    margin-top: 40px;
+}
+.label-input{
+    font-size:18px !important;
+}
+.input-details{
+    font-size: 18px !important;
+}
+.btn-login-div{
+    margin-top:10px;
+    
+    display: inline-block;
+}
+
+.btn-login{
+    padding:2px 24px !important;
+    font-size: 20px !important;
+}
+
+@media only screen and (max-width:1400px){
+    .college-head{
+        font-size: 34px;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 80px;
+    }
+}
+@media only screen and (max-width:1300px){
+    .college-head{
+        font-size: 32px;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 80px;
+    }
+    .login-inner{
+        padding: 30px;
+    }
+}
+@media only screen and (max-width:1200px){
+    .college-head{
+        font-size: 30px;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 80px;
+    }
+    .login-inner{
+        width: 80%;
+    }
+}
+@media only screen and (max-width:992px){
+    .college-head{
+        font-size: 28px;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 70px;
+    }
+    .login-inner{
+        width: 90%;
+    }
+}
+@media only screen and (max-width:750px){
+    .college-head{
+        font-size: 24px;
+        text-align: center;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 65px;
+    }
+    .login-inner{
+        width: 90%;
+        padding: 30px 20px;
+    }
+    .btn-login{
+        padding:5px 24px !important;
+        font-size: 18px !important;
+    }
+}
+@media only screen and (max-width:600px){
+    .college-head{
+        font-size: 24px;
+        text-align: center;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 70px;
+    }
+    .login-inner{
+        width: 95%;
+        padding: 30px 20px;
+    }
+    .btn-login{
+        padding:5px 24px !important;
+        font-size: 16px !important;
+    }
+    .label-input{
+        font-size:16px !important;
+    }
+    .input-details{
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+    }
+}
+@media only screen and (max-width:400px){
+    .college-head{
+        font-size: 22px;
+        text-align: center;
+    }
+    .outer-header-logo, .ieee-logo{
+        height: 60px;
+    }
+    .login-inner{
+        width: 95%;
+        padding: 30px 20px;
+    }
+    .btn-login{
+        padding:5px 24px !important;
+        font-size: 16px !important;
+    }
+    .label-input{
+        font-size:16px !important;
+    }
+    .input-details{
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+    }
+}
+@media only screen and (max-width:360px){
+    .college-head{
+        font-size: 20px;
+        text-align: center;
+    }
+    .login-inner{
+        width: 98%;
+        padding: 30px 10px;
+    }
+}
