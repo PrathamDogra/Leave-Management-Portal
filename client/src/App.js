@@ -15,6 +15,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Faculty from "./components/users/Faculty";
 import LeavesLeft from "./components/users/LeavesLeft";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ManageLeaves from './components/users/ManageLeaves'
 
 import "./App.css";
 
@@ -52,6 +53,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/faculty" component={Faculty} />
+              <PrivateRoute exact path="/ManageLeaves" component={ManageLeaves} />
             </Switch>
           </div>
         </Router>

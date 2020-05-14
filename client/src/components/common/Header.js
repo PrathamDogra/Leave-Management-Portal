@@ -1,15 +1,36 @@
 import React, { Component } from "react";
 import logo from '../../images/logo.png'
 import "./Header.css";
-import { Button } from "reactstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import {Link} from 'react-router-dom';
 class Header extends Component {
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
+  menuOptions=(type)=>{
+      if(type=='Teacher'){
+        return (
+                <div onClick={this.onLogoutClick} className="logout-btn-div active" >
+                  Logout
+                </div>
+              )
+      }
+      if(type == 'Admin')  {
+        return (
+                <div style={{display:'flex', alignItems:'center'}}>
+                  <Link style={{textDecoration:'none'}} to='faculty'><div className={ this.props.active=='Home' ? "admin-manage-user-div active" : "admin-manage-user-div "}>Home</div></Link>
+                  <Link style={{textDecoration:'none'}} to='ManageLeaves'><div className={ this.props.active=='Manage Leaves' ? "admin-manage-user-div active" : "admin-manage-user-div "}>   Manage Leaves </div> </Link>
+                   <div className={this.props.active=='Manage Users' ? "admin-manage-user-div active" : "admin-manage-user-div"}>   Manage Users </div> 
+                   <div onClick={this.onLogoutClick} className= "logout-btn-div">
+                      Logout
+                  </div>
+                </div>
+              )
+      }
+  }
   render() {
     return (
       <div className="header-common">
@@ -17,21 +38,8 @@ class Header extends Component {
           <img className="header-msit-logo-img" src={logo} />
         </div>
         <div>
-          {/* <div className="people-name">
-                        {this.props.name}
-                    </div> */}
-          <button
-            style={{
-              width: "150px",
-              borderRadius: "3px",
-              letterSpacing: "1.5px",
-              marginTop: "1rem",
-            }}
-            onClick={this.onLogoutClick}
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-          >
-            Logout
-          </button>
+          {this.menuOptions(this.props.type)}
+          
         </div>
       </div>
     );

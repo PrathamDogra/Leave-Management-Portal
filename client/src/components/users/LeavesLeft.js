@@ -8,6 +8,8 @@ class LeavesLeft extends Component {
                return(
                 <div className="leaves-table-row">
                     <div className="table-data">{element.title}</div>
+                    <div className="table-data">{element.total}</div>
+                    <div className="table-data">{element.remaining}</div>
                     <div className="table-data">{element.count}</div>
                 </div>
                )

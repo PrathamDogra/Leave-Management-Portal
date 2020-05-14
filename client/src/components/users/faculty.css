@@ -70,3 +70,12 @@
     padding-bottom: 5px;
     font-size: 20px;
 }
+.table-top-heads{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+.table-head-content{
+    text-align: center;
+}

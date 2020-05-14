@@ -1,0 +1,30 @@
+.LeavesList-outerdiv{
+    margin-bottom: 20px;
+}
+.faculty-img-div-leaves{
+    width: 170px;
+    height: 170px;
+}
+.read-more-table{
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 4px 18px;
+    width:max-content;
+    margin-top: 20px;
+}
+.list-leaves-manage{
+    display: none;
+}
+.read-more-table:focus{
+    text-decoration: none;
+    background: white;
+    outline: none;
+}
+.LeavesList-outerdiv{
+    background-color: #F3F1EE;
+}
+.leaves-left-head-manage{
+    margin-top: 10px;
+}

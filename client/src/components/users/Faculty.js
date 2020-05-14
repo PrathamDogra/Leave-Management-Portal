@@ -19,33 +19,45 @@ class Faculty extends Component {
       leaves: [
         {
           title: "Earned Leave",
+          total:20,
+          remaining:10,
           count: 10,
         },
         {
           title: "Earned Leave",
+          total:20,
+          remaining:10,
           count: 10,
         },
         {
           title: "Earned Leave",
+          total:20,
+          remaining:10,
           count: 10,
         },
         {
           title: "Earned Leave",
+          total:20,
+          remaining:10,
           count: 10,
         },
         {
           title: "Earned Leave",
+          total:20,
+          remaining:10,
           count: 10,
         },
         {
           title: "Earned Leave",
+          total:20,
+          remaining:10,
           count: 10,
         },
       ],
     };
     return (
       <div>
-        <Header name="Gunjan Beniwal" />
+        <Header type={fetch.designation} active='Home'/>
         <LeavesLeft data={fetch} />
       </div>
     );
